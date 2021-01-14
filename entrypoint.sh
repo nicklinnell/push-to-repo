@@ -21,7 +21,6 @@ CLONE_DIR=$(mktemp -d)
 
 echo "Cloning destination git repository"
 # Setup git
-git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | xargs git config --unset-all
 git config --global user.email "$USER_EMAIL"
 git config --global user.name "$DESTINATION_GITHUB_USERNAME"
 git clone --single-branch --branch "$TARGET_BRANCH" "https://token:$API_TOKEN_GITHUB@github.com/$DESTINATION_REPOSITORY_USERNAME/$DESTINATION_REPOSITORY_NAME.git" "$CLONE_DIR"
